@@ -1,6 +1,6 @@
 NOP	0000 0000 0000 0000
 
-add	0001 0100 aaaa bbbb	A = A + B 
+add	0001 0100 aaaa bbbb	A = A + B
 sub	0001 0101 aaaa bbbb	A = A - B
 mul	0001 0110 aaaa bbbb	A = A * B
 div	0001 0111 aaaa bbbb	A = A / B
@@ -14,9 +14,9 @@ neg	0001 1000 aaaa bbbb	A = -A
 inc	0001 1011 aaaa xxxx	A = A + 1
 dec	0001 1100 aaaa xxxx	A = A - 1			
 
-mov	0010 aaaa cccc cccc	A = C				
+mov	0010 aaaa cccc cccc	A = C
 
-mov	0011 0000 aaaa aaaa	A = B				
+mov	0011 0000 aaaa bbbb	A = B
 
 cmp	0100 xxxx aaaa bbbb	Compara A com B			...
 cmp	0101 aaaa cccc cccc	Compara A com C			...
