@@ -1,25 +1,27 @@
 NOP	0000 0000 0000 0000
 
-add	0001 0100 aaaa bbbb	A = A + B
-sub	0001 0101 aaaa bbbb	A = A - B
-mul	0001 0110 aaaa bbbb	A = A * B
-div	0001 0111 aaaa bbbb	A = A / B
-lsh	0001 1001 aaaa bbbb	A = A << B
-rsh	0001 1010 aaaa bbbb	A = A >> B
 and	0001 0000 aaaa bbbb	A = A & B
 or 	0001 0001 aaaa bbbb	A = A | B
 not	0001 0010 aaaa bbbb	A = !A
 xor	0001 0011 aaaa bbbb	A = A ^ B
+add	0001 0100 aaaa bbbb	A = A + B
+sub	0001 0101 aaaa bbbb	A = A - B
+mul	0001 0110 aaaa bbbb	A = A * B
+div	0001 0111 aaaa bbbb	A = A / B
 neg	0001 1000 aaaa bbbb	A = -A
+lsh	0001 1001 aaaa bbbb	A = A << B
+rsh	0001 1010 aaaa bbbb	A = A >> B
 inc	0001 1011 aaaa xxxx	A = A + 1
-dec	0001 1100 aaaa xxxx	A = A - 1			
+dec	0001 1100 aaaa xxxx	A = A - 1	
 
-mov	0010 aaaa cccc cccc	A = C
 
-mov	0011 0000 aaaa bbbb	A = B
 
-cmp	0100 xxxx aaaa bbbb	Compara A com B			...
-cmp	0101 aaaa cccc cccc	Compara A com C			...
+mov	0010 aaaa cccc cccc	A = C				[ASSEMBLED]
+
+mov	0011 0000 aaaa bbbb	A = B				[ASSEMBLED]
+
+cmp	0100 xxxx aaaa bbbb	Compara A com B			[ASSEMBLED]
+cmp	0101 aaaa cccc cccc	Compara A com C			[ASSEMBLED]
 
 jump	0110 llll llll llll	Pula incondicional		...
 je	0111 llll llll llll	Pula quando igual		...
