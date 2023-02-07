@@ -1,0 +1,15 @@
+C:\Users\Peter\Desktop\Logisim-basic-computer\Assembler\obj\Debug\net7.0\Assembler.csproj.AssemblyReference.cache
+C:\Users\Peter\Desktop\Logisim-basic-computer\Assembler\obj\Debug\net7.0\Assembler.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Peter\Desktop\Logisim-basic-computer\Assembler\obj\Debug\net7.0\Assembler.AssemblyInfoInputs.cache
+C:\Users\Peter\Desktop\Logisim-basic-computer\Assembler\obj\Debug\net7.0\Assembler.AssemblyInfo.cs
+C:\Users\Peter\Desktop\Logisim-basic-computer\Assembler\obj\Debug\net7.0\Assembler.csproj.CoreCompileInputs.cache
+C:\Users\Peter\Desktop\Logisim-basic-computer\Assembler\bin\Debug\net7.0\Assembler.exe
+C:\Users\Peter\Desktop\Logisim-basic-computer\Assembler\bin\Debug\net7.0\Assembler.deps.json
+C:\Users\Peter\Desktop\Logisim-basic-computer\Assembler\bin\Debug\net7.0\Assembler.runtimeconfig.json
+C:\Users\Peter\Desktop\Logisim-basic-computer\Assembler\bin\Debug\net7.0\Assembler.dll
+C:\Users\Peter\Desktop\Logisim-basic-computer\Assembler\bin\Debug\net7.0\Assembler.pdb
+C:\Users\Peter\Desktop\Logisim-basic-computer\Assembler\obj\Debug\net7.0\Assembler.dll
+C:\Users\Peter\Desktop\Logisim-basic-computer\Assembler\obj\Debug\net7.0\refint\Assembler.dll
+C:\Users\Peter\Desktop\Logisim-basic-computer\Assembler\obj\Debug\net7.0\Assembler.pdb
+C:\Users\Peter\Desktop\Logisim-basic-computer\Assembler\obj\Debug\net7.0\Assembler.genruntimeconfig.cache
+C:\Users\Peter\Desktop\Logisim-basic-computer\Assembler\obj\Debug\net7.0\ref\Assembler.dll
