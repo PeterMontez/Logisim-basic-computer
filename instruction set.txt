@@ -1,34 +1,36 @@
-NOP	0000 0000 0000 0000
+NOP	0000 0000 0000 0000					[ASSEMBLED]
 
-and	0001 0000 aaaa bbbb	A = A & B
-or 	0001 0001 aaaa bbbb	A = A | B
-not	0001 0010 aaaa bbbb	A = !A
-xor	0001 0011 aaaa bbbb	A = A ^ B
-add	0001 0100 aaaa bbbb	A = A + B
-sub	0001 0101 aaaa bbbb	A = A - B
-mul	0001 0110 aaaa bbbb	A = A * B
-div	0001 0111 aaaa bbbb	A = A / B
-neg	0001 1000 aaaa bbbb	A = -A
-lsh	0001 1001 aaaa bbbb	A = A << B
-rsh	0001 1010 aaaa bbbb	A = A >> B
-inc	0001 1011 aaaa xxxx	A = A + 1
-dec	0001 1100 aaaa xxxx	A = A - 1	
-
-
+and	0001 0000 aaaa bbbb	A = A & B			[ASSEMBLED]
+or 	0001 0001 aaaa bbbb	A = A | B			[ASSEMBLED]
+not	0001 0010 aaaa bbbb	A = !A				[ASSEMBLED]
+xor	0001 0011 aaaa bbbb	A = A ^ B			[ASSEMBLED]
+add	0001 0100 aaaa bbbb	A = A + B			[ASSEMBLED]
+sub	0001 0101 aaaa bbbb	A = A - B			[ASSEMBLED]
+mul	0001 0110 aaaa bbbb	A = A * B			[ASSEMBLED]
+div	0001 0111 aaaa bbbb	A = A / B			[ASSEMBLED]
+neg	0001 1000 aaaa bbbb	A = -A				[ASSEMBLED]
+lsh	0001 1001 aaaa bbbb	A = A << B			[ASSEMBLED]
+rsh	0001 1010 aaaa bbbb	A = A >> B			[ASSEMBLED]
+inc	0001 1011 aaaa xxxx	A = A + 1			[ASSEMBLED]
+dec	0001 1100 aaaa xxxx	A = A - 1			[ASSEMBLED]
 
 mov	0010 aaaa cccc cccc	A = C				[ASSEMBLED]
 
 mov	0011 0000 aaaa bbbb	A = B				[ASSEMBLED]
+mov 	0011 0001 aaaa [bbbb]	A = *B (load)			[ASSEMBLED] [ADDED]
+mov	0011 0010 [aaaa] bbbb	*A = B (store)			[ASSEMBLED]
+push	0011 0011 aaaa xxxx	Coloca A na stack		[ASSEMBLED]
+pop	0011 0100 aaaa xxxx	Remove valor da stack pra A	[ASSEMBLED]
 
 cmp	0100 xxxx aaaa bbbb	Compara A com B			[ASSEMBLED]
 cmp	0101 aaaa cccc cccc	Compara A com C			[ASSEMBLED]
 
-jump	0110 llll llll llll	Pula incondicional		...
-je	0111 llll llll llll	Pula quando igual		...
-jne	1000 llll llll llll	Pula quando diferente		...
-jg	1001 llll llll llll	Pula quando maior		...
-jge	1010 llll llll llll	Pula quando maior ou igual	...
-jz	1011 llll llll llll	Pula se o ultimo valor foi zero	...
+jump	0110 llll llll llll	Pula incondicional		[ASSEMBLED]
+je	0111 llll llll llll	Pula quando igual		[ASSEMBLED]
+jne	1000 llll llll llll	Pula quando diferente		[ASSEMBLED]
+jg	1001 llll llll llll	Pula quando maior		[ASSEMBLED]
+jge	1010 llll llll llll	Pula quando maior ou igual	[ASSEMBLED]
+jz	1011 llll llll llll	Pula se o ultimo valor foi zero	[ASSEMBLED]
 
 call	1100 llll llll llll	Chama uma função		...
 ret	1101 1111 1111 1111	Retorna da função		...

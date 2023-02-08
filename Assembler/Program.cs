@@ -28,9 +28,10 @@ try
     while (!reader.EndOfStream)
     {
         string line = reader.ReadLine();
-        line = flagFinder(line);
+        flagFinder(line);
     }
 
+    currentInst = 0;
     writer = new StreamWriter("memory");
     writer.WriteLine("v2.0 raw");
     reader = new StreamReader(filePath);
@@ -59,7 +60,21 @@ finally
 
 void flagFinder(string line)
 {
-    ;
+    Boolean flagger = false;
+
+    string[] parts = line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+    if (parts[0].Contains(':'))
+    {
+        flagger = true;
+        flags.Add(parts[0].Replace(":", string.Empty), currentInst);
+    }
+
+    if (!flagger)
+    {
+        currentInst++;
+    }
+
 }
 
 string processLine(string line)
@@ -76,17 +91,10 @@ string processLine(string line)
 
     string[] parts = line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-    foreach (string part in parts)
-    {
-        Console.WriteLine(part);
-    }
-    Console.WriteLine(" ----- FIM DA LINHA ----- ");
-
 
     if (parts[0].Contains(':'))
     {
         flagger = true;
-        flags.Add(parts[0].Replace(":", string.Empty), currentInst);
     }
 
     if (Array.IndexOf(operations, parts[0]) != -1)
@@ -109,6 +117,18 @@ string processLine(string line)
             if(isReg(parts[2]))
             {
                 inst = dec("0011");
+                if (parts[1].IndexOf("[") != -1)
+                {
+                    par0 = 2;
+                    par1 = Convert.ToByte(parts[1].Replace("$", string.Empty).Replace(",", string.Empty).Replace("[", string.Empty).Replace("]", string.Empty));
+                    par1 = Convert.ToByte(parts[2].Replace("$", string.Empty).Replace(",", string.Empty).Replace("[", string.Empty).Replace("]", string.Empty));
+                }
+                if (parts[2].IndexOf("[") != -1)
+                {
+                    par0 = 1;
+                    par1 = Convert.ToByte(parts[1].Replace("$", string.Empty).Replace(",", string.Empty).Replace("[", string.Empty).Replace("]", string.Empty));
+                    par1 = Convert.ToByte(parts[2].Replace("$", string.Empty).Replace(",", string.Empty).Replace("[", string.Empty).Replace("]", string.Empty));
+                }
                 par0 = 0;
                 par1 = Convert.ToByte(parts[1].Replace("$", string.Empty).Replace(",", string.Empty));
                 par2 = Convert.ToByte(parts[2].Replace("$", string.Empty).Replace(",", string.Empty));
@@ -141,49 +161,63 @@ string processLine(string line)
             }
             break;
 
+        case "push":
+            inst = dec("0011");
+            par0 = 3;
+            par1 = Convert.ToByte(parts[1].Replace("$", string.Empty).Replace(",", string.Empty));
+            par2 = 0;
+            break;
+
+        case "pop":
+            inst = dec("0011");
+            par0 = 4;
+            par1 = Convert.ToByte(parts[1].Replace("$", string.Empty).Replace(",", string.Empty));
+            par2 = 0;
+            break;
+
         case "jump":
-            inValue12bit = convertValue12bitsV2(parts[1]);
             inst = dec("0110");
+            inValue12bit = convertValue12bitsV2((flags[parts[1]]).ToString());
             par0 = inValue12bit[0];
             par1 = inValue12bit[1];
             par2 = inValue12bit[2];
             break;
 
         case "je":
-            inValue12bit = convertValue12bitsV2((flags[parts[1]]).ToString());
             inst = dec("0111");
+            inValue12bit = convertValue12bitsV2((flags[parts[1]]).ToString());
             par0 = inValue12bit[0];
             par1 = inValue12bit[1];
             par2 = inValue12bit[2];
             break;
 
         case "jne":
-            inValue12bit = convertValue12bitsV2((flags[parts[1]]).ToString());
             inst = dec("1000");
+            inValue12bit = convertValue12bitsV2((flags[parts[1]]).ToString());
             par0 = inValue12bit[0];
             par1 = inValue12bit[1];
             par2 = inValue12bit[2];
             break;
 
         case "jg":
-            inValue12bit = convertValue12bitsV2((flags[parts[1]]).ToString());
             inst = dec("1000");
+            inValue12bit = convertValue12bitsV2((flags[parts[1]]).ToString());
             par0 = inValue12bit[0];
             par1 = inValue12bit[1];
             par2 = inValue12bit[2];
             break;
 
         case "jge":
-            inValue12bit = convertValue12bitsV2((flags[parts[1]]).ToString());
             inst = dec("1010");
+            inValue12bit = convertValue12bitsV2((flags[parts[1]]).ToString());
             par0 = inValue12bit[0];
             par1 = inValue12bit[1];
             par2 = inValue12bit[2];
             break; 
 
         case "jz":
-            inValue12bit = convertValue12bitsV2((flags[parts[1]]).ToString());
             inst = dec("1011");
+            inValue12bit = convertValue12bitsV2((flags[parts[1]]).ToString());
             par0 = inValue12bit[0];
             par1 = inValue12bit[1];
             par2 = inValue12bit[2];
@@ -263,7 +297,7 @@ byte[] convertValue12bitsV2(string value)
         binary[11 - i] = (byte)((number & (1 << i)) >> i);
     }
 
-    byte[] decimalBytes = new byte[2];
+    byte[] decimalBytes = new byte[3];
     decimalBytes[0] = (byte)(binary[0] * 8 + binary[1] * 4 + binary[2] * 2 + binary[3] * 1);
     decimalBytes[1] = (byte)(binary[4] * 8 + binary[5] * 4 + binary[6] * 2 + binary[7] * 1);
     decimalBytes[2] = (byte)(binary[8] * 8 + binary[9] * 4 + binary[10] * 2 + binary[11] * 1);
