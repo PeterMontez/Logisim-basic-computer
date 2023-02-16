@@ -21,6 +21,8 @@ mov 	0011 0001 aaaa [bbbb]	A = *B (load)			[ASSEMBLED] [ADDED]
 mov	0011 0010 [aaaa] bbbb	*A = B (store)			[ASSEMBLED] [ADDED]
 push	0011 0011 aaaa xxxx	Coloca A na stack		[ASSEMBLED] 
 pop	0011 0100 aaaa xxxx	Remove valor da stack pra A	[ASSEMBLED]
+dsp	0011 0101 aaaa {bbbb}	A = `B (load) VRAM
+dsp	0011 0110 {aaaa} bbbb	`A = B (store) VRAM
 
 cmp	0100 xxxx aaaa bbbb	Compara A com B			[ASSEMBLED]
 cmp	0101 aaaa cccc cccc	Compara A com C			[ASSEMBLED]

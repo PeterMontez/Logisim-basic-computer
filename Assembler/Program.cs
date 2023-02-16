@@ -129,9 +129,6 @@ string processLine(string line)
                     par1 = Convert.ToByte(parts[1].Replace("$", string.Empty).Replace(",", string.Empty).Replace("[", string.Empty).Replace("]", string.Empty));
                     par1 = Convert.ToByte(parts[2].Replace("$", string.Empty).Replace(",", string.Empty).Replace("[", string.Empty).Replace("]", string.Empty));
                 }
-                par0 = 0;
-                par1 = Convert.ToByte(parts[1].Replace("$", string.Empty).Replace(",", string.Empty));
-                par2 = Convert.ToByte(parts[2].Replace("$", string.Empty).Replace(",", string.Empty));
             }
             else
             {
