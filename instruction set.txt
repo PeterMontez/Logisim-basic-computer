@@ -27,7 +27,7 @@ dsp	0011 0110 {aaaa} bbbb	`A = B (store) VRAM
 cmp	0100 xxxx aaaa bbbb	Compara A com B			[ASSEMBLED]
 cmp	0101 aaaa cccc cccc	Compara A com C			[ASSEMBLED]
 
-jump	0110 llll llll llll	Pula incondicional		[ASSEMBLED]
+jmp	0110 llll llll llll	Pula incondicional		[ASSEMBLED]
 je	0111 llll llll llll	Pula quando igual		[ASSEMBLED]
 jne	1000 llll llll llll	Pula quando diferente		[ASSEMBLED]
 jg	1001 llll llll llll	Pula quando maior		[ASSEMBLED]
